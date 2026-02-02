@@ -19,6 +19,10 @@ export const metadata: Metadata = {
 	description:
 		'Оформление контракта на службу. Выплаты, требования, вакансии, помощь с документами и ВВК.',
 
+	verification: {
+		yandex: '3a521b4c4990fccd',
+	},
+
 	alternates: {
 		canonical: '/',
 	},
