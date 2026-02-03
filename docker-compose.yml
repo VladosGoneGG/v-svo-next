@@ -5,7 +5,10 @@ services:
     restart: always
     environment:
       - NODE_ENV=production
-      - NEXT_PUBLIC_SITE_ORIGIN=https://v-svo.ru
+      - SITE_ORIGIN=https://v-svo.ru
+      - API_ORIGIN=http://host.docker.internal:3500
+    extra_hosts:
+      - 'host.docker.internal:host-gateway'
     expose:
       - '3000'
 

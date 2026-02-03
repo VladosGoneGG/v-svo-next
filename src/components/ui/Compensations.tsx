@@ -59,7 +59,7 @@ const ITEMS: readonly CompensationItem[] = [
 		col: 'md:col-span-2 lg:col-span-1',
 	},
 	{
-		title: 'Доплата за продижение',
+		title: 'Доплата за продвижение',
 		amount: '50 000 руб.',
 		desc: 'за каждый километр',
 		h: 'h-[96px]',
