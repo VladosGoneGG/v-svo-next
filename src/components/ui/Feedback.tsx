@@ -55,7 +55,7 @@ export default function Feedback() {
 					{FEEDBACKS.map(f => (
 						<li
 							key={f.name}
-							className='flex flex-col gap-2.5 rounded-[20px] bg-[#ebebeb] px-7.5 py-5'
+							className='flex flex-col justify-center items-start gap-2.5 rounded-[20px] bg-[#ebebeb] px-7.5 py-5'
 						>
 							<p className='text-[20px] font-semibold'>{f.name}</p>
 							<p className='text-[14px] font-medium'>{f.text}</p>
