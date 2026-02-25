@@ -13,9 +13,10 @@ type FormValues = {
 
 type PopupProps = {
 	onSuccess?: () => void
+	onClose?: () => void
 }
 
-const Popup = ({ onSuccess }: PopupProps) => {
+const Popup = ({ onSuccess, onClose }: PopupProps) => {
 	const { registerOptions: phoneRules, inputProps: phoneInputProps } =
 		useRuPhoneInput()
 
@@ -68,7 +69,23 @@ const Popup = ({ onSuccess }: PopupProps) => {
 	}
 
 	return (
-		<div className='w-full flex flex-col justify-center items-center gap-[15px] max-w-[700px] bg-[#F9F9F9] rounded-[30px] p-5 md:px-15 md:py-10 xl:px-20 md:gap-[25px]'>
+		<div className='relative w-full flex flex-col justify-center items-center gap-[15px] max-w-[700px] bg-[#F9F9F9] rounded-[30px] p-5 md:px-15 md:py-10 xl:px-20 md:gap-[25px]'>
+			{/* Close button */}
+			<button
+				type='button'
+				onClick={onClose}
+				aria-label='Закрыть'
+				className='absolute right-3 top-4 md:right-6  inline-flex items-center justify-center p-2 cursor-pointer'
+			>
+				<img
+					src='/icons/closeicon.svg'
+					alt='Закрыть'
+					className='h-[14px] w-[14px]'
+					loading='lazy'
+					decoding='async'
+				/>
+			</button>
+
 			<div className='flex flex-col gap-5 justify-center items-center font-golos'>
 				<p className='font-semibold text-contrast text-[24px] md:text-[30px] lg:text-[40px]'>
 					Заявка на консультацию

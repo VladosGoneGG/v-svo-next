@@ -29,13 +29,9 @@ export default function LeftColumn({
 	agree,
 	onToggleAgree,
 	onContactsSubmit,
-	birthDateValidate,
 }: LeftColumnProps) {
 	const headerKey = `${isContacts ? 'contacts' : 'step'}-${currentStep?.id ?? 0}`
 	const bodyKey = isContacts ? 'contacts' : `step-${currentStep?.id ?? 0}`
-
-	const birthDatePlacement =
-		currentStep?.id === 2 ? 'top' : currentStep?.id === 3 ? 'bottom' : 'none'
 
 	return (
 		<div className='order-2 md:order-1 relative flex w-full flex-col md:min-w-[414px]'>
@@ -87,8 +83,6 @@ export default function LeftColumn({
 								onPick={onPick}
 								register={register}
 								errors={errors}
-								birthDateValidate={birthDateValidate}
-								birthDatePlacement={birthDatePlacement}
 							/>
 						)}
 					</motion.div>

@@ -12,10 +12,7 @@ import RightColumn from '@/components/ui/answers/RightColumn'
 import { STEPS } from '@/components/ui/answers/steps'
 import type { QuizFormValues } from '@/components/ui/answers/types'
 import { makeOptionsLabelMap } from '@/components/ui/answers/utils'
-import {
-	isValidBirthDate,
-	isValidRuPhone,
-} from '@/components/ui/answers/validators'
+import { isValidRuPhone } from '@/components/ui/answers/validators'
 
 import Modal from '@/components/ui/Modal'
 import Popupok from '@/components/ui/Popupok'
@@ -51,10 +48,8 @@ export default function AnswersClient() {
 		reValidateMode: 'onChange',
 		defaultValues: {
 			military: '',
-			birthDate: '',
 			health: '',
 			spec: '',
-			customSpec: '',
 			interest: '',
 			priority: '',
 			name: '',
@@ -92,11 +87,9 @@ export default function AnswersClient() {
 	const optionsLabelMap = useMemo(() => makeOptionsLabelMap(STEPS), [])
 
 	// watch
-	const birthDate = watch('birthDate')
 	const name = watch('name')
 	const phone = watch('phone')
 	const agree = watch('agree')
-	const customSpec = watch('customSpec')
 
 	// picked value для текущего шага
 	const stepField = currentStep?.field
@@ -104,19 +97,8 @@ export default function AnswersClient() {
 
 	const canNextQuiz = useMemo(() => {
 		if (!currentStep) return false
-
-		// шаг с датой рождения
-		if (currentStep.id === 2) {
-			return Boolean(pickedValue) && isValidBirthDate(birthDate)
-		}
-
-		// кастомная специальность
-		if (currentStep.field === 'spec' && pickedValue === 'custom') {
-			return Boolean((customSpec || '').trim())
-		}
-
 		return Boolean(pickedValue)
-	}, [currentStep, birthDate, pickedValue, customSpec])
+	}, [currentStep, pickedValue])
 
 	const canSubmit = useMemo(() => {
 		return (
@@ -130,16 +112,8 @@ export default function AnswersClient() {
 
 		// обычные шаги
 		if (step !== LAST_STEP_ID) {
-			if (currentStep.id === 2) {
-				const ok = await trigger('birthDate')
-				if (!ok) return
-			}
-
 			if (canNextQuiz) {
-				setStep(prev => {
-					const next = (Number(prev) + 1) as StepId
-					return next
-				})
+				setStep(prev => (Number(prev) + 1) as StepId)
 			}
 			return
 		}
@@ -154,10 +128,7 @@ export default function AnswersClient() {
 			return
 		}
 		if (step !== FIRST_STEP_ID) {
-			setStep(prev => {
-				const next = (Number(prev) - 1) as StepId
-				return next
-			})
+			setStep(prev => (Number(prev) - 1) as StepId)
 		}
 	}
 
@@ -187,27 +158,16 @@ export default function AnswersClient() {
 		if (now - lastSentAtRef.current < 15_000) return
 		if (isSending) return
 
-		const custom = (raw.customSpec || '').trim()
-		const hasCustomSpec = custom.length > 0
-
-		const specForSend =
-			raw.spec === 'custom' || hasCustomSpec
-				? custom
-				: optionsLabelMap.spec?.[raw.spec] || raw.spec
-
 		const pageUrl = typeof window !== 'undefined' ? window.location.href : ''
 
 		const payload = {
 			...raw,
 			military: optionsLabelMap.military?.[raw.military] || raw.military,
 			health: optionsLabelMap.health?.[raw.health] || raw.health,
-			spec: specForSend,
+			spec: optionsLabelMap.spec?.[raw.spec] || raw.spec,
 			interest: optionsLabelMap.interest?.[raw.interest] || raw.interest,
 			priority: optionsLabelMap.priority?.[raw.priority] || raw.priority,
-			specSelected:
-				raw.spec === 'custom'
-					? 'Свой вариант'
-					: optionsLabelMap.spec?.[raw.spec] || raw.spec,
+			specSelected: optionsLabelMap.spec?.[raw.spec] || raw.spec,
 			pageUrl,
 		}
 
@@ -234,11 +194,6 @@ export default function AnswersClient() {
 			setIsSending(false)
 		}
 	}
-
-	// важно: чтобы trigger('birthDate') работал корректно,
-	// birthDate поле должно иметь register с validate
-	// (обычно это делает BirthDateField внутри LeftColumn, но если нет — мы передаём валидатор)
-	const birthDateValidate = useMemo(() => isValidBirthDate, [])
 
 	return (
 		<section className='relative pb-5 pt-5 lg:py-[30px] xl:pb-[40px]'>
@@ -271,7 +226,6 @@ export default function AnswersClient() {
 						agree={agree}
 						onToggleAgree={toggleAgree}
 						onContactsSubmit={handleSubmit(onSubmit)}
-						birthDateValidate={birthDateValidate}
 					/>
 				</div>
 			</div>

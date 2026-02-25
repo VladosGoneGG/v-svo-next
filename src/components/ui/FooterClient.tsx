@@ -72,6 +72,18 @@ export default function FooterClient({ specAndProf, units, cities }: Props) {
 					>
 						<img src='/images/telegrami.png' alt='Телеграм' />
 					</a>
+					<a
+						href='https://max.ru/u/f9LHodD0cOKkXAR5ED7Vblvs1dPUil-OukIWJ7j3xfm77KaPK8fxbwEPxhI'
+						target='_blank'
+						rel='noopener noreferrer'
+						aria-label='Telegram'
+					>
+						<img
+							src='/icons/maxicon.svg'
+							alt='Макс'
+							className='cursor-pointer hover:opacity-90 active:opacity-70'
+						/>
+					</a>
 				</div>
 
 				<motion.button
@@ -204,7 +216,7 @@ export default function FooterClient({ specAndProf, units, cities }: Props) {
 				{callPopup.isSuccess ? (
 					<Popupok onClose={callPopup.close} />
 				) : (
-					<Popup onSuccess={callPopup.success} />
+					<Popup onSuccess={callPopup.success} onClose={callPopup.close} />
 				)}
 			</Modal>
 		</>

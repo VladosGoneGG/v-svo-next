@@ -21,9 +21,9 @@ export default function HomePage() {
 			<HashScroll />
 			<Hero />
 			<Compensations />
+			<Answers />
 			<Benefits />
 			<Vacancies />
-			<Answers />
 			<Equipment />
 			<Requirements />
 			<Specialties />

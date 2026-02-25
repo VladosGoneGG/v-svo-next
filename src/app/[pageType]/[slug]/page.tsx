@@ -290,9 +290,9 @@ export default async function DynamicPage({
 
 			<Hero {...heroProps} />
 			<Compensations {...compensationsProps} />
+			<Answers {...answersProps} />
 			<Benefits {...benefitsProps} />
 			<Vacancies {...vacanciesProps} />
-			<Answers {...answersProps} />
 			<Equipment {...equipmentProps} />
 			<Requirements {...requirementsProps} />
 			<Specialties {...specialtiesProps} />

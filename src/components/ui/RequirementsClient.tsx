@@ -110,7 +110,7 @@ export default function RequirementsClient({
 				{popup.isSuccess ? (
 					<Popupok onClose={popup.close} />
 				) : (
-					<Popup onSuccess={popup.success} />
+					<Popup onSuccess={popup.success} onClose={popup.close} />
 				)}
 			</Modal>
 		</section>

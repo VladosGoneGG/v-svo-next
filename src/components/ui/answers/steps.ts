@@ -44,7 +44,6 @@ export const STEP5_OPTIONS = [
 
 /**
  * Поля формы, которые используются в шагах квиза.
- * ВАЖНО: step 2 формально "health", а birthDate — дополнительное поле.
  */
 export type QuizStepField =
 	| 'military'
@@ -60,7 +59,6 @@ export type QuizStep = {
 	artemText: string
 	field: QuizStepField
 	options: readonly StepOption[]
-	withBirthDate?: boolean
 }
 
 export const STEPS = [
@@ -75,12 +73,11 @@ export const STEPS = [
 	{
 		id: 2,
 		counter: '2/5',
-		title: 'Дата рождения и состояние здоровья',
+		title: 'Состояние здоровья',
 		artemText:
-			'В зависимости от возраста и состояния здоровья могут быть разные условия и требования',
+			'В зависимости от состояния здоровья могут быть разные условия и требования',
 		field: 'health',
 		options: STEP2_OPTIONS,
-		withBirthDate: true,
 	},
 	{
 		id: 3,

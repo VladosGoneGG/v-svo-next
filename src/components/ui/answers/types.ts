@@ -3,10 +3,8 @@ import type { QuizStep } from './steps'
 
 export type QuizFormValues = {
 	military: string
-	birthDate: string
 	health: string
 	spec: string
-	customSpec: string
 	interest: string
 	priority: string
 	name: string
@@ -19,8 +17,6 @@ export type QuizMeta = {
 	title: string
 	artemText?: string
 }
-
-export type BirthDatePlacement = 'top' | 'bottom' | 'none'
 
 export type LeftColumnProps = {
 	borderProps?: DashedBorderProps
@@ -37,9 +33,6 @@ export type LeftColumnProps = {
 	agree: boolean
 	onToggleAgree: () => void | Promise<void>
 	onContactsSubmit: () => void
-
-	birthDateValidate: (v: unknown) => boolean
-	// phoneValidate?: (v: unknown) => boolean  // если вдруг ещё нужно
 }
 
 export type RightColumnProps = {
@@ -67,12 +60,8 @@ export type QuizContentProps = {
 	currentStep?: QuizStep
 	pickedValue: string
 	onPick: (id: string) => void
-
 	register: UseFormRegister<QuizFormValues>
 	errors: FieldErrors<QuizFormValues>
-
-	birthDateValidate: (v: unknown) => boolean
-	birthDatePlacement: BirthDatePlacement
 }
 
 export type ContactsFormProps = {

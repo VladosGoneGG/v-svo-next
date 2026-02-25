@@ -7,15 +7,15 @@ const EASE: [number, number, number, number] = [0.42, 0, 0.58, 1]
 const DURATION = 0.3
 
 const backBtn = {
-	initial: { opacity: 0, scale: 0.96, x: -6 },
+	initial: { opacity: 0, scale: 0.96, x: 0 },
 	animate: { opacity: 1, scale: 1, x: 0 },
-	exit: { opacity: 0, scale: 0.96, x: -6 },
+	exit: { opacity: 0, scale: 0.96, x: 0 },
 } as const
 
 const labelSwap = {
-	initial: { opacity: 0, y: 6 },
+	initial: { opacity: 0, y: 0 },
 	animate: { opacity: 1, y: 0 },
-	exit: { opacity: 0, y: -6 },
+	exit: { opacity: 0, y: 0 },
 } as const
 
 export default function NavButtons({
