@@ -1,12 +1,14 @@
-import type { Metadata } from 'next'
-import { Golos_Text, Inter } from 'next/font/google'
-
+import YandexMetrika from '@/components/analytics/YandexMetrika'
 import Footer from '@/components/ui/Footer'
 import Header from '@/components/ui/Header'
+import type { Metadata } from 'next'
+import { Golos_Text, Inter } from 'next/font/google'
 
 import './globals.css'
 
 const SITE_ORIGIN = process.env.NEXT_PUBLIC_SITE_ORIGIN ?? 'https://v-svo.ru'
+
+const YM_ID = Number(process.env.NEXT_PUBLIC_YANDEX_METRIKA_ID ?? '107015573')
 
 export const metadata: Metadata = {
 	metadataBase: new URL(SITE_ORIGIN),
@@ -42,9 +44,6 @@ export const metadata: Metadata = {
 			'Оформление контракта на службу. Выплаты, требования, вакансии, помощь с документами и ВВК.',
 		locale: 'ru_RU',
 	},
-
-	// если понадобится — легко добавить
-	// twitter: { card: 'summary_large_image' },
 }
 
 const golos = Golos_Text({
@@ -70,11 +69,15 @@ export default function RootLayout({
 			<body className='font-golos'>
 				<div className='min-h-screen flex flex-col w-full max-w-300 min-[1200px]:mx-auto'>
 					<Header />
-
 					<main className='flex-1 lg:mt-2.5'>{children}</main>
-
 					<Footer />
 				</div>
+
+				{/* Yandex Metrika */}
+				<YandexMetrika
+					id={YM_ID}
+					enabled={process.env.NODE_ENV === 'production'}
+				/>
 			</body>
 		</html>
 	)

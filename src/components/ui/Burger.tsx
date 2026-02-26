@@ -237,6 +237,8 @@ export default function Burger({ open, onClose }: BurgerProps) {
 									<div className='flex flex-col items-center gap-2'>
 										<Link
 											href='/privacy'
+											target='_blank'
+											rel='noopener noreferrer'
 											className='font-golos text-[14px] min-[500px]:text-[18px] text-black underline underline-offset-4'
 											onClick={onClose}
 										>

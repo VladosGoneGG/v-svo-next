@@ -80,6 +80,8 @@ export default async function Footer() {
 					<div className='w-54.5 font-inter font-normal text-[14px] text-center'>
 						<Link
 							href='/privacy'
+							target='_blank'
+							rel='noopener noreferrer'
 							className='underline underline-offset-3 cursor-pointer'
 						>
 							Политика конфиденциальности

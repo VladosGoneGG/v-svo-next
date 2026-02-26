@@ -16,6 +16,20 @@ type PopupProps = {
 	onClose?: () => void
 }
 
+declare global {
+	interface Window {
+		ym?: (...args: any[]) => void
+	}
+}
+
+const YM_ID = 107015573
+
+function reachFormsGoal() {
+	if (typeof window === 'undefined') return
+	if (typeof window.ym !== 'function') return
+	window.ym(YM_ID, 'reachGoal', 'forms')
+}
+
 const Popup = ({ onSuccess, onClose }: PopupProps) => {
 	const { registerOptions: phoneRules, inputProps: phoneInputProps } =
 		useRuPhoneInput()
@@ -61,6 +75,9 @@ const Popup = ({ onSuccess, onClose }: PopupProps) => {
 			})
 
 			if (!res.ok) return
+
+			// ✅ Цель метрики: только после успешной отправки
+			reachFormsGoal()
 
 			onSuccess?.()
 		} finally {
@@ -181,6 +198,8 @@ const Popup = ({ onSuccess, onClose }: PopupProps) => {
 
 							<a
 								href='/privacy'
+								target='_blank'
+								rel='noopener noreferrer'
 								className='font-inter font-semibold text-[12px] text-[#1d1e21] min-[770px]:text-[14px] leading-5 underline'
 							>
 								Условия передачи информации

@@ -17,6 +17,20 @@ import { isValidRuPhone } from '@/components/ui/answers/validators'
 import Modal from '@/components/ui/Modal'
 import Popupok from '@/components/ui/Popupok'
 
+declare global {
+	interface Window {
+		ym?: (...args: any[]) => void
+	}
+}
+
+const YM_ID = 107015573
+
+function reachKvizGoal() {
+	if (typeof window === 'undefined') return
+	if (typeof window.ym !== 'function') return
+	window.ym(YM_ID, 'reachGoal', 'kviz')
+}
+
 type StepId = (typeof STEPS)[number]['id']
 type Step = (typeof STEPS)[number]
 type StepField = Step['field']
@@ -180,6 +194,8 @@ export default function AnswersClient() {
 			})
 
 			if (!res.ok) return
+
+			reachKvizGoal()
 
 			lastSentAtRef.current = now
 			okPopup.open()

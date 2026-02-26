@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'motion/react'
+import Link from 'next/link'
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 
@@ -47,6 +48,20 @@ const QUESTIONS: QuestionItem[] = [
 	},
 ]
 
+declare global {
+	interface Window {
+		ym?: (...args: any[]) => void
+	}
+}
+
+const YM_ID = 107015573
+
+function reachFormsGoal() {
+	if (typeof window === 'undefined') return
+	if (typeof window.ym !== 'function') return
+	window.ym(YM_ID, 'reachGoal', 'forms')
+}
+
 export default function ConsultationClient() {
 	const popup = usePopupFlow()
 	const { registerOptions: phoneRules, inputProps: phoneInputProps } =
@@ -87,6 +102,8 @@ export default function ConsultationClient() {
 			})
 
 			if (!res.ok) return
+
+			reachFormsGoal()
 
 			popup.open()
 			popup.success()
@@ -190,7 +207,6 @@ export default function ConsultationClient() {
 										{...register('phone', phoneRules)}
 									/>
 
-									{/* Чекбокс: только register/watch/setValue (без useController) */}
 									<motion.div
 										className='mt-5 inline-flex h-5 select-none items-center gap-2.5 pl-[5px]'
 										whileHover={{ y: -1 }}
@@ -238,12 +254,15 @@ export default function ConsultationClient() {
 											</span>
 										</button>
 
-										<a
-											href='#'
+										<Link
+											href='/privacy'
+											target='_blank'
+											rel='noopener noreferrer'
 											className='font-inter text-[12px] font-semibold leading-5 text-[#1d1e21] underline min-[770px]:text-[14px]'
+											onClick={e => e.stopPropagation()}
 										>
 											Условия передачи информации
-										</a>
+										</Link>
 									</motion.div>
 
 									<motion.button
@@ -275,7 +294,6 @@ export default function ConsultationClient() {
 				</div>
 			</div>
 
-			{/* Модалка успеха */}
 			<Modal isOpen={popup.isOpen} onClose={popup.close}>
 				<Popupok onClose={popup.close} />
 			</Modal>
