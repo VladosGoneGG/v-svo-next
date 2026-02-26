@@ -33,30 +33,40 @@ export default function HeroClient({ title, subtitle, text }: HeroProps) {
 		<section className='px-2.5 xl:px-5'>
 			<div
 				className={[
-					'relative isolate mx-auto w-full overflow-hidden rounded-[40px]',
+					'relative isolate mx-auto w-full overflow-hidden rounded-[20px] md:rounded-[30px]',
 					'w-full',
 					'min-h-[420px] sm:min-h-[460px] md:min-h-[520px] lg:min-h-[580px] xl:min-h-[650px]',
 					'flex',
-					'px-5 py-5 sm:px-6 sm:py-6 md:px-8 md:py-8 lg:px-10 lg:py-10 xl:px-11 xl:py-12',
+
 					'text-white',
 				].join(' ')}
 			>
 				{/* BACKDROP: заполняет блок без пустот */}
 				<div className='pointer-events-none absolute inset-0 -z-10'>
 					<Image
-						src='/images/herobg.webp'
+						src='/images/herobgfon.webp'
 						alt=''
 						fill
 						priority
 						sizes='(max-width: 768px) 100vw, 1200px'
-						className='object-cover object-center scale-110 '
+						className='object-cover object-center scale-105 '
 					/>
+					<div className='absolute bottom-0 right-0 w-[320px] md:w-[420px] lg:w-[520px]'>
+						<Image
+							src='/images/soldathero.webp'
+							alt=''
+							width={800}
+							height={1200}
+							priority
+							className='w-full h-auto object-contain'
+						/>
+					</div>
 				</div>
 
 				{/* Content */}
-				<div className='relative z-10 flex w-full '>
+				<div className='relative z-10 flex w-full p-2.5'>
 					<div className='flex w-full items-end '>
-						<div className='flex w-full max-w-[350px] flex-col min-[550px]:max-w-[500px] md:max-w-[550px] xl:max-w-[650px] backdrop-blur-[2px]'>
+						<div className='flex w-full max-w-[350px] flex-col min-[550px]:max-w-[500px] md:max-w-[550px] xl:max-w-[650px] backdrop-blur-[2px] rounded-[20px] p-2.5 sm:p-5 md:p-7.5 xl:p-10'>
 							<div className='font-golos pb-[15px] min-[425px]:pb-[10px]  xl:pb-[25px]'>
 								<h1 className='text-[20px] font-semibold md:text-[24px] lg:text-[30px] xl:text-[45px]'>
 									{finalTitle}
@@ -78,7 +88,7 @@ export default function HeroClient({ title, subtitle, text }: HeroProps) {
 								onClick={popup.open}
 								className={[
 									'w-full md:max-w-[450px]',
-									'h-[37px] md:h-[62px]',
+									'h-[57px] md:h-[62px]',
 									'rounded-[10px]',
 									'bg-contrast/90 shadow-btn hover:bg-contrast active:bg-contrast/70',
 									'transition-colors duration-150 ease-in-out',
