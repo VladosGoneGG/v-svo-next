@@ -30,7 +30,7 @@ export default function HeroClient({ title, subtitle, text }: HeroProps) {
 	}, [text])
 
 	return (
-		<section className='px-2.5 xl:px-5'>
+		<section className='px-2.5 xl:px-5 relative overflow-hidden'>
 			<div
 				className={[
 					'relative isolate mx-auto w-full overflow-hidden rounded-[20px] md:rounded-[30px]',
@@ -51,7 +51,7 @@ export default function HeroClient({ title, subtitle, text }: HeroProps) {
 						sizes='(max-width: 768px) 100vw, 1200px'
 						className='object-cover object-center scale-105 '
 					/>
-					<div className='absolute bottom-0 right-0 w-[320px] md:w-[420px] lg:w-[520px]'>
+					<div className='absolute bottom-0 right-[-110px] w-[350px] sm:right-0 sm:w-[400px] md:w-[450px]  lg:w-[520px] '>
 						<Image
 							src='/images/soldathero.webp'
 							alt=''
@@ -88,7 +88,7 @@ export default function HeroClient({ title, subtitle, text }: HeroProps) {
 								onClick={popup.open}
 								className={[
 									'w-full md:max-w-[450px]',
-									'h-[57px] md:h-[62px]',
+									'h-[37px] md:h-[62px]',
 									'rounded-[10px]',
 									'bg-contrast/90 shadow-btn hover:bg-contrast active:bg-contrast/70',
 									'transition-colors duration-150 ease-in-out',
