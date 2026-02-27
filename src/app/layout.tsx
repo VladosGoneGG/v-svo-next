@@ -3,6 +3,7 @@ import Footer from '@/components/ui/Footer'
 import Header from '@/components/ui/Header'
 import type { Metadata } from 'next'
 import { Golos_Text, Inter } from 'next/font/google'
+import { Suspense } from 'react'
 
 import './globals.css'
 
@@ -73,11 +74,13 @@ export default function RootLayout({
 					<Footer />
 				</div>
 
-				{/* Yandex Metrika */}
-				<YandexMetrika
-					id={YM_ID}
-					enabled={process.env.NODE_ENV === 'production'}
-				/>
+				{/* Yandex Metrika (обязательно через Suspense) */}
+				<Suspense fallback={null}>
+					<YandexMetrika
+						id={YM_ID}
+						enabled={process.env.NODE_ENV === 'production'}
+					/>
+				</Suspense>
 			</body>
 		</html>
 	)
