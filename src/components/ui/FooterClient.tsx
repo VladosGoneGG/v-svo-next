@@ -68,15 +68,15 @@ export default function FooterClient({ specAndProf, units, cities }: Props) {
 						target='_blank'
 						rel='noopener noreferrer'
 						aria-label='Telegram'
-						className='flex items-center justify-center shrink-0 w-7.5 h-7.5 rounded-[10px] cursor-pointer hover:opacity-90 active:opacity-70'
+						className='flex items-center justify-center shrink-0 w-7.5 h-7.5 rounded-[15px] cursor-pointer hover:opacity-90 active:opacity-70 bg-white'
 					>
-						<img src='/images/telegrami.png' alt='Телеграм' />
+						<img src='/icons/telegram.svg' alt='Телеграм' />
 					</a>
 					<a
 						href='https://max.ru/u/f9LHodD0cOKkXAR5ED7Vblvs1dPUil-OukIWJ7j3xfm77KaPK8fxbwEPxhI'
 						target='_blank'
 						rel='noopener noreferrer'
-						aria-label='Telegram'
+						aria-label='Max'
 					>
 						<img
 							src='/icons/maxicon.svg'

@@ -114,7 +114,7 @@ export default function Burger({ open, onClose }: BurgerProps) {
 
 						{/* PANEL */}
 						<motion.div
-							className='relative w-full min-h-dvh flex flex-col px-5'
+							className='relative w-full min-h-dvh flex flex-col p-5'
 							variants={{
 								hidden: { opacity: 0, y: 10 },
 								show: { opacity: 1, y: 0 },
@@ -145,7 +145,7 @@ export default function Burger({ open, onClose }: BurgerProps) {
 							</div>
 
 							{/* MIDDLE */}
-							<div className='flex-1 flex flex-col gap-5'>
+							<div className='flex-1 flex flex-col gap-5 justify-between'>
 								<nav className='mt-5'>
 									<ul
 										className='
@@ -186,68 +186,78 @@ export default function Burger({ open, onClose }: BurgerProps) {
 									</ul>
 								</nav>
 
-								{/* CONTACT */}
-								<div className='flex items-center gap-5'>
-									<a
-										href='tel:+79998887766'
-										className='font-golos font-medium text-[14px] min-[500px]:text-[20px] min-[600px]:text-[26px] text-black'
-									>
-										+7 (999) 888-77-66
-									</a>
-
-									<a
-										href='https://t.me/+79998887766'
-										target='_blank'
-										rel='noopener noreferrer'
-										className='flex items-center justify-center shrink-0 w-7.5 h-7.5 rounded-[10px] cursor-pointer hover:opacity-90 active:opacity-70'
-										aria-label='Telegram'
-									>
-										<img src='/images/telegrami.png' alt='Телеграм' />
-									</a>
-									<a
-										href='https://max.ru/u/f9LHodD0cOKkXAR5ED7Vblvs1dPUil-OukIWJ7j3xfm77KaPK8fxbwEPxhI'
-										target='_blank'
-										rel='noopener noreferrer'
-										aria-label='Telegram'
-									>
-										<img
-											src='/icons/maxicon.svg'
-											alt='Макс'
-											className='cursor-pointer hover:opacity-90 active:opacity-70'
-										/>
-									</a>
-								</div>
-
-								{/* BOTTOM */}
-								<div className='w-full flex flex-col items-center gap-2.5 mt-[75px]'>
-									<button
-										type='button'
-										onClick={handleCallClick}
-										className='
-                      w-full max-w-[250px] h-[49px]
+								<div className='w-full h-auto justify-between flex flex-col items-start gap-2.5 '>
+									<div className='flex w-full flex-col items-start gap-2'>
+										<div className='flex w-full flex-col items-start gap-[5px]'>
+											<button
+												type='button'
+												onClick={handleCallClick}
+												className='
+                      w-full  h-[49px]
                       bg-contrast/90 hover:bg-contrast active:bg-contrast/70 font-inter
-                      text-[14px] min-[500px]:text-[20px] min-[500px]:max-w-[350px] min-[500px]:h-[62px]
+                      text-[14px] min-[500px]:text-[20px]  min-[500px]:h-[62px]
                       font-semibold text-white
-                      rounded-[10px] flex items-center justify-center cursor-pointer shadow-btn
+                      rounded-[10px] flex items-center justify-center cursor-pointer shadow-btn mt-[5px]
                     '
-									>
-										Обратный звонок
-									</button>
+											>
+												Обратный звонок
+											</button>
+											<div className='flex items-center gap-2.5 my-[15px]'>
+												<a
+													href='tel:+79998887766'
+													className='font-golos font-medium text-[14px] min-[500px]:text-[18px]  text-black'
+												>
+													+7 (999) 888-77-66
+												</a>
 
-									<div className='flex flex-col items-center gap-2'>
-										<Link
-											href='/privacy'
-											target='_blank'
-											rel='noopener noreferrer'
-											className='font-golos text-[14px] min-[500px]:text-[18px] text-black underline underline-offset-4'
-											onClick={onClose}
-										>
-											Политика конфиденциальности
-										</Link>
-
-										<p className='font-golos text-[14px] min-[500px]:text-[18px] text-black'>
-											2022 - 2025 г.
-										</p>
+												<a
+													href='https://t.me/+79998887766'
+													target='_blank'
+													rel='noopener noreferrer'
+													className='flex items-center justify-center shrink-0 w-7.5 h-7.5 rounded-[10px] cursor-pointer hover:opacity-90 active:opacity-70'
+													aria-label='Telegram'
+												>
+													<img src='/images/telegrami.png' alt='Телеграм' />
+												</a>
+												<a
+													href='https://max.ru/u/f9LHodD0cOKkXAR5ED7Vblvs1dPUil-OukIWJ7j3xfm77KaPK8fxbwEPxhI'
+													target='_blank'
+													rel='noopener noreferrer'
+													aria-label='Telegram'
+												>
+													<img
+														src='/icons/maxicon.svg'
+														alt='Макс'
+														className='cursor-pointer hover:opacity-90 active:opacity-70'
+													/>
+												</a>
+											</div>
+											<Link
+												href='/privacy'
+												target='_blank'
+												rel='noopener noreferrer'
+												className='font-golos text-[14px] min-[500px]:text-[18px] text-black underline underline-offset-4'
+												onClick={onClose}
+											>
+												Политика конфиденциальности
+											</Link>
+											<Link
+												href='/requisites'
+												rel='noopener noreferrer'
+												target='_blank'
+												className='text-[14px] min-[500px]:text-[18px] underline underline-offset-3 cursor-pointer'
+											>
+												Реквизиты
+											</Link>
+											<div className='w-full my-[10px] h-[0.5px] bg-[#797C85]/60 rounded' />
+											<p className='text-[#797C85] text-[14px] text-left'>
+												Компания занимается информированием и сопровождением
+												кандидатов при заключении контракта
+											</p>
+											<p className='text-[#797C85] text-[14px]'>
+												2022 - 2026 г.
+											</p>
+										</div>
 									</div>
 								</div>
 							</div>

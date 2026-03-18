@@ -61,8 +61,8 @@ export default async function Footer() {
 				className='
           w-full mx-auto
           max-w-106.25 min-[426px]:max-w-239.75 min-[960px]:max-w-300
-          px-2.5 pt-2.5 pb-5
-          lg:pt-7.5 lg:pb-10 xl:pb-12.5
+          px-2.5 pt-5 pb-5
+          lg:pt-7.5 lg:pb-7.5 xl:pb-7.5
           min-[960px]:px-5
           flex flex-col gap-5
           text-white
@@ -76,8 +76,8 @@ export default async function Footer() {
 					/>
 				</div>
 
-				<div className='w-full flex justify-center'>
-					<div className='w-54.5 font-inter font-normal text-[14px] text-center'>
+				<div className='w-full flex justify-center pl-10'>
+					<div className='w-full font-inter font-normal text-[14px] text-center flex flex-col items-start '>
 						<Link
 							href='/privacy'
 							target='_blank'
@@ -86,7 +86,22 @@ export default async function Footer() {
 						>
 							Политика конфиденциальности
 						</Link>
-						<p>2022 – 2025 г.</p>
+						<Link
+							href='/requisites'
+							rel='noopener noreferrer'
+							target='_blank'
+							className='underline underline-offset-3 cursor-pointer mt-[5px]'
+						>
+							Реквизиты
+						</Link>
+						<div className='w-full my-[10px] h-[0.5px] bg-[#797C85]/60 rounded' />
+						<div className='flex flex-col items-start  '>
+							<p className='text-[#797C85] text-[14px] text-left'>
+								Компания занимается информированием и сопровождением кандидатов
+								при заключении контракта
+							</p>
+							<p className='text-[#797C85] text-[14px]'>2022 - 2026 г.</p>
+						</div>
 					</div>
 				</div>
 			</div>

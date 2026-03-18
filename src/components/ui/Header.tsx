@@ -125,7 +125,7 @@ export default function Header() {
 				</ul>
 
 				<div className='flex gap-5 items-center'>
-					<div className='hidden min-[426px]:flex items-center gap-2.5   '>
+					<div className='hidden min-[465px]:flex items-center gap-2.5   '>
 						<a
 							href='tel:+79334380810'
 							className='font-golos font-medium text-[14px] cursor-pointer hover:text-contrast active:text-contrast/70 transition-colors duration-150 ease-in-out'
