@@ -68,7 +68,7 @@ export default async function Footer() {
           text-white
         '
 			>
-				<div className='flex flex-col pl-10 items-center gap-5 min-[426px]:flex-row min-[426px]:items-start min-[426px]:justify-between'>
+				<div className='flex flex-col px-5 items-center gap-5 min-[426px]:flex-row min-[426px]:items-start min-[426px]:justify-between'>
 					<FooterClient
 						specAndProf={data.specAndProf}
 						units={data.units}
@@ -76,7 +76,7 @@ export default async function Footer() {
 					/>
 				</div>
 
-				<div className='w-full flex justify-center pl-10'>
+				<div className='w-full flex justify-center px-5 '>
 					<div className='w-full font-inter font-normal text-[14px] text-center flex flex-col items-start '>
 						<Link
 							href='/privacy'
