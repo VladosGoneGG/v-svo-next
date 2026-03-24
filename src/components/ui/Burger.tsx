@@ -204,21 +204,12 @@ export default function Burger({ open, onClose }: BurgerProps) {
 											</button>
 											<div className='flex items-center gap-2.5 my-[15px]'>
 												<a
-													href='tel:+79998887766'
+													href='tel:+79334380810'
 													className='font-golos font-medium text-[14px] min-[500px]:text-[18px]  text-black'
 												>
-													+7 (999) 888-77-66
+													+7 (933) 438-08-10
 												</a>
 
-												<a
-													href='https://t.me/+79998887766'
-													target='_blank'
-													rel='noopener noreferrer'
-													className='flex items-center justify-center shrink-0 w-7.5 h-7.5 rounded-[10px] cursor-pointer hover:opacity-90 active:opacity-70'
-													aria-label='Telegram'
-												>
-													<img src='/images/telegrami.png' alt='Телеграм' />
-												</a>
 												<a
 													href='https://max.ru/u/f9LHodD0cOKkXAR5ED7Vblvs1dPUil-OukIWJ7j3xfm77KaPK8fxbwEPxhI'
 													target='_blank'

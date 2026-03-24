@@ -124,7 +124,7 @@ export default function Header() {
 					))}
 				</ul>
 
-				<div className='flex gap-5 items-center'>
+				<div className='flex gap-2.5 items-center'>
 					<div className='hidden min-[465px]:flex items-center gap-2.5   '>
 						<a
 							href='tel:+79334380810'
@@ -132,18 +132,7 @@ export default function Header() {
 						>
 							+7 (933) 438-08-10
 						</a>
-						<a
-							href='https://t.me/+79334380810'
-							target='_blank'
-							rel='noopener noreferrer'
-							aria-label='Telegram'
-						>
-							<img
-								src='/icons/telegram.svg'
-								alt='Телеграм'
-								className='cursor-pointer hover:opacity-90 active:opacity-70'
-							/>
-						</a>
+
 						<a
 							href='https://max.ru/u/f9LHodD0cOKkXAR5ED7Vblvs1dPUil-OukIWJ7j3xfm77KaPK8fxbwEPxhI'
 							target='_blank'

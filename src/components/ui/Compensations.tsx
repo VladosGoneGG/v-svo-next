@@ -12,7 +12,7 @@ type CompensationItem = {
 const ITEMS: readonly CompensationItem[] = [
 	{
 		title: 'Единовременная выплата',
-		amount: 'до 3 000 000 руб.',
+		amount: 'до 4 500 000 руб.',
 		desc: 'по региональным и федеральным программам',
 		h: 'h-[96px]',
 		minH: 'max-[425px]:min-h-[96px]',
@@ -104,7 +104,7 @@ export default function Compensations() {
 			>
 				<div className='w-full max-w-[405px] max-[766px]:max-w-none md:max-w-none'>
 					<h2 className='w-full max-w-[365px] max-[766px]:max-w-none px-5 font-inter text-[20px] font-semibold md:max-w-none md:text-[24px] lg:pb-2.5 lg:text-[30px] xl:text-[40px]'>
-						Выплаты и компенсации по контракту СВО в 2025 году
+						Выплаты и компенсации по контракту СВО в 2026 году
 					</h2>
 				</div>
 
