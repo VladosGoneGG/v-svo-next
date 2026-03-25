@@ -14,7 +14,7 @@ import { usePopupFlow } from '@/hooks/usePopupFlow'
 const DEFAULT_CONTENT = {
 	title: 'СВО по контракту:',
 	subtitle: 'Служба по контракту в армии РФ',
-	text: ['до 3 000 000 единовременно', 'от 210 000 ежемесячно'],
+	text: ['до 4 500 000 единовременно', 'от 210 000 ежемесячно'],
 } satisfies { title: string; subtitle: string; text: string[] }
 
 export default function HeroClient({ title, subtitle, text }: HeroProps) {
